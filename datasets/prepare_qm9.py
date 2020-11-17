@@ -12,7 +12,7 @@ np.random.seed(123)
 max_atom_num = 55
 K = 5
 qm9_tasks = ['A', 'B', 'C', 'mu', 'alpha', 'homo', 'lumo', 'gap', 'r2', 'zpve', 'cv', 'u0', 'u298', 'h298', 'g298',
-             'u298_atom', 'h298_atom', 'g298_atom']
+             'u0_atom', 'u298_atom', 'h298_atom', 'g298_atom']
 
 
 def prepare(dataset_name, clean_mols=False):

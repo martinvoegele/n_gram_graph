@@ -125,7 +125,7 @@ def train():
                 loss += temp_loss
             loss.backward()
             optimizer.step()
-            train_loss.append(loss.data[0])
+            train_loss.append(loss.detach().item())
 
         train_loss = np.mean(train_loss)
         print('epoch: {}\tloss is: {}'.format(epoch, train_loss))

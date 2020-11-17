@@ -15,7 +15,7 @@ mode2task_list = {
         'E1-CAM', 'E2-CAM', 'f1-CAM', 'f2-CAM'
     ],
     'qm9': [
-        'mu', 'alpha', 'homo', 'lumo', 'gap', 'r2', 'zpve', 'cv', 'u0', 'u298', 'h298', 'g298',
+        'mu', 'alpha', 'homo', 'lumo', 'gap', 'r2', 'zpve', 'cv', 'u0', 'u298', 'h298', 'g298', 'u0_atom', 'u298_atom', 'h298_atom', 'g298_atom',
     ]
 }
 
