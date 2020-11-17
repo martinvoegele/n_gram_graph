@@ -1,7 +1,9 @@
 # N-Gram Graph
 
 This repository contains the source code for the paper
-> Shengchao Liu, Mehmet Furkan Demirel, Yingyu Liang. N-Gram Graph: Simple Unsupervised Representation for Graphs, with Applications to Molecules. NeurIPS 2019 (Spotlight), with small adaptations by Martin Voegele.
+> Shengchao Liu, Mehmet Furkan Demirel, Yingyu Liang. N-Gram Graph: Simple Unsupervised Representation for Graphs, with Applications to Molecules. NeurIPS 2019 (Spotlight) 
+
+with small adaptations by Martin Voegele.
 
 You can check the paper on  [NeurIPS proceedings](https://papers.nips.cc/paper/9054-n-gram-graph-simple-unsupervised-representation-for-graphs-with-applications-to-molecules) or [ArXiv](https://arxiv.org/abs/1806.09206).
 
