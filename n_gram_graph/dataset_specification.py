@@ -24,6 +24,6 @@ dataset2task_list = {
     'qm9':
         [
             'mu', 'alpha', 'homo', 'lumo', 'gap', 'r2', 'zpve', 'cv', 'u0',
-            'u298', 'h298', 'g298', 'u298_atom', 'h298_atom', 'g298_atom'
+            'u298', 'h298', 'g298', 'u0_atom', 'u298_atom', 'h298_atom', 'g298_atom'
         ],
 }

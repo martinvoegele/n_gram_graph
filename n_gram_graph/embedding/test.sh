@@ -5,6 +5,9 @@ running_index_list=(0 1 2 3 4)
 
 for task in "${task_list[@]}"; do
     for running_index in "${running_index_list[@]}"; do
+
+	echo "$task $running_index"
+
         mkdir -p ./output/"$task"/"$running_index"
         mkdir -p ./model_weight/"$task"/"$running_index"
 
@@ -19,3 +22,4 @@ for task in "${task_list[@]}"; do
         --running_index="$running_index" > ./output/"$task"/"$running_index"/graph_embedding.out
     done
 done
+
