@@ -106,7 +106,7 @@ def get_walk_representation(dataloader):
 if __name__ == '__main__':
     parser = argparse.ArgumentParser()
     parser.add_argument('--mode', type=str, default='delaney')
-    parser.add_argument('--running_index', type=int, default=0)
+    parser.add_argument('--running_index', type=str, default='test')
     parser.add_argument('--seed', type=int, default=123)
     args = parser.parse_args()
     mode = args.mode
@@ -145,14 +145,14 @@ if __name__ == '__main__':
         model = CBoW(feature_num=feature_num, embedding_dim=embedding_dimension,
                      task_num=segmentation_num, task_size_list=segmentation_list)
 
-        weight_file = 'model_weight/{}/{}/{}_CBoW_non_segment.pt'.format(mode, running_index, embedding_dimension)
+        weight_file = 'model_weight/{}/defsplit-seed{}/{}_CBoW_non_segment.pt'.format(mode, seed, embedding_dimension)
         print('weight file is {}'.format(weight_file))
         model.load_state_dict(torch.load(weight_file))
         if torch.cuda.is_available():
             model.cuda()
         model.eval()
 
-        for i in range(5):
+        for i in ['train','valid','test']:
             data_path = '../../datasets/{}/{}_graph.npz'.format(mode, i)
             adjacent_matrix_list, distance_matrix_list, bond_attribute_matrix_list, node_attribute_matrix_list, kwargs = get_data(data_path)
             dataset = GraphDataset(node_attribute_matrix_list=node_attribute_matrix_list, adjacent_matrix_list=adjacent_matrix_list, distance_matrix_list=distance_matrix_list)
@@ -161,7 +161,7 @@ if __name__ == '__main__':
             embedded_node_matrix_list, embedded_graph_matrix_list = get_walk_representation(dataloader)
             print('embedded_graph_matrix_list\t', embedded_graph_matrix_list.shape)
 
-            out_file_path = '../../datasets/{}/{}/{}_grammed_cbow_{}_graph'.format(mode, running_index, i, embedding_dimension)
+            out_file_path = '../../datasets/{}/defsplit-seed{}/{}_grammed_cbow_{}_graph'.format(mode, seed, i, embedding_dimension)
             kwargs['adjacent_matrix_list'] = adjacent_matrix_list
             kwargs['distance_matrix_list'] = distance_matrix_list
             kwargs['embedded_node_matrix_list'] = embedded_node_matrix_list
@@ -169,4 +169,3 @@ if __name__ == '__main__':
             np.savez_compressed(out_file_path, **kwargs)
             print(kwargs.keys())
             print()
-

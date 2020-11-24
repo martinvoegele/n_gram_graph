@@ -165,7 +165,7 @@ if __name__ == '__main__':
     parser = argparse.ArgumentParser()
     parser.add_argument('--mode', type=str, default='delaney')
     parser.add_argument('--epochs', type=int, default=100)
-    parser.add_argument('--running_index', type=int, default=0)
+    parser.add_argument('--running_index', type=str, default='test')
     parser.add_argument('--seed', type=int, default=123)
     args = parser.parse_args()
     mode = args.mode
@@ -207,7 +207,7 @@ if __name__ == '__main__':
     print('training list: {}\ttest list: {}'.format(train_list, test_list))
 
     for random_dimension in random_dimension_list:
-        weight_file = 'model_weight/{}/{}/{}_CBoW_non_segment.pt'.format(mode, running_index, random_dimension)
+        weight_file = 'model_weight/{}/defsplit-seed{}/{}_CBoW_non_segment.pt'.format(mode, seed, random_dimension)
 
         model = CBoW(feature_num=feature_num, embedding_dim=random_dimension,
                      task_num=segmentation_num, task_size_list=segmentation_list)
@@ -227,4 +227,3 @@ if __name__ == '__main__':
         print()
         print()
         print()
-

@@ -7,14 +7,14 @@ model_list=(n_gram_xgb)
 for task in "${task_list[@]}"; do
     for model in "${model_list[@]}"; do
         for running_index in "${running_index_list[@]}"; do
-            mkdir -p ../output/"$model"/"$running_index"
+            mkdir -p ../output/"$model"/"defsplit-seed$running_index"
 
-            python main_regression.py \
+            python main_regression_defsplit.py \
             --task="$task" \
             --config_json_file=../hyper/"$model"/"$task".json \
             --weight_file=temp.pt \
             --running_index="$running_index" \
-            --model="$model" > ../output/"$model"/"$running_index"/"$task".out
+            --model="$model" > ../output/"$model"/"defsplit-seed$running_index"/"$task".out
         done
     done
 done

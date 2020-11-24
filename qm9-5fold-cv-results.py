@@ -18,7 +18,7 @@ def read_results(fname):
 def print_results(transform=True):
     for t, task in enumerate(dataset2task_list['qm9']):
         mae_list = []
-        for i in range(3):
+        for i in range(5):
             result_file = 'output/n_gram_xgb/'+str(i)+'/'+task+'.out'
             pearson, r2, rmse, mae = read_results(result_file)
             new_mae = float(mae)
